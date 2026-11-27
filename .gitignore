@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Local SQLite database & WAL/SHM files (contains runtime restaurant data & local session secret)
+data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs & OS artifacts
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Test coverage / temp exports
+coverage/
+*.escpos.bin

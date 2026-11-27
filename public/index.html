@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-density="comfortable">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRES — Run Your Restaurant Smarter.</title>
+  <link id="appFavicon" rel="icon" href="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- GRES Boot / Loading Screen -->
+  <div id="bootLoader" class="boot-loader" role="status" aria-live="polite">
+    <div class="boot-card">
+      <div class="brand-badge boot-emblem">G</div>
+      <div class="boot-title">GRES</div>
+      <div class="boot-sub">GRES Restaurant Management System</div>
+      <div class="boot-tagline">Run Your Restaurant Smarter.</div>
+      <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Ambient Animated Aurora Mesh -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-orb orb-1"></div>
+    <div class="aurora-orb orb-2"></div>
+    <div class="aurora-orb orb-3"></div>
+  </div>
+
+  <!-- Login / Register / Terminal Auth Gate -->
+  <div id="authScreen" class="auth-screen hidden">
+    <div class="auth-layout">
+      <!-- Left Showcase Panel -->
+      <div class="auth-showcase">
+        <div id="authCoverBanner" class="auth-cover hidden"></div>
+        <div class="showcase-pill">
+          <span class="ws-dot"></span>
+          <span id="authShowcaseBadge">GRES RESTAURANT MANAGEMENT SYSTEM</span>
+        </div>
+        <h2 class="showcase-headline" id="authShowcaseTitle">Run Your Restaurant <span>Smarter.</span></h2>
+        <p class="showcase-copy" id="authShowcaseCopy">GRES unifies multi-branch POS, drag-and-drop floor plans, live kitchen display, automatic CGST/SGST invoicing, thermal printing, and recipe inventory on a single real-time platform.</p>
+
+        <div class="showcase-preview-grid">
+          <div class="mini-stat-card">
+            <span class="mini-lbl">PLATFORM</span>
+            <strong class="mono">GRES RMS</strong>
+          </div>
+          <div class="mini-stat-card">
+            <span class="mini-lbl">GST ENGINE</span>
+            <strong class="mono">CGST+SGST</strong>
+          </div>
+          <div class="mini-stat-card">
+            <span class="mini-lbl">THERMAL PRINT</span>
+            <strong class="mono">58 / 80mm</strong>
+          </div>
+          <div class="mini-stat-card">
+            <span class="mini-lbl">BRANDING</span>
+            <strong class="mono">CUSTOMIZABLE</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Auth Card -->
+      <div class="auth-card">
+        <div class="auth-brand">
+          <div class="brand-badge" id="authBrandBadge">G</div>
+          <div>
+            <h1 id="authBrandTitle">GRES <span class="ver-tag">RMS</span></h1>
+            <p id="authBrandSub">Run Your Restaurant Smarter.</p>
+          </div>
+        </div>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth-tab="password">Sign In</button>
+          <button class="auth-tab" data-auth-tab="register">New Restaurant</button>
+          <button class="auth-tab" data-auth-tab="pin">Staff PIN</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="loginForm" class="auth-form">
+          <label class="field-label">Work Email
+            <input type="email" id="loginEmail" class="input" placeholder="you@restaurant.com" required autocomplete="username">
+          </label>
+          <label class="field-label">Password
+            <input type="password" id="loginPassword" class="input" placeholder="Enter your password" required autocomplete="current-password">
+          </label>
+          <button type="submit" class="btn btn-primary btn-full btn-lg btn-shimmer">
+            <span>Sign In to GRES</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </form>
+
+        <!-- Register New Restaurant Form -->
+        <form id="registerForm" class="auth-form hidden">
+          <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:8px">
+            <label class="field-label">Restaurant Name
+              <input type="text" id="regRestName" class="input" placeholder="Your Restaurant" required>
+            </label>
+            <label class="field-label">Branch Code
+              <input type="text" id="regBranchCode" class="input mono" placeholder="MAIN" maxlength="12" required>
+            </label>
+          </div>
+          <label class="field-label">Primary Branch Name
+            <input type="text" id="regBranchName" class="input" placeholder="Main Outlet" required>
+          </label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <label class="field-label">Admin Full Name
+              <input type="text" id="regAdminName" class="input" placeholder="Full Name" required>
+            </label>
+            <label class="field-label">Admin Email
+              <input type="email" id="regEmail" class="input" placeholder="admin@restaurant.com" required>
+            </label>
+          </div>
+          <div style="display:grid;grid-template-columns:1.2fr 0.8fr;gap:8px">
+            <label class="field-label">Password
+              <input type="password" id="regPassword" class="input" minlength="6" placeholder="Min 6 chars" required>
+            </label>
+            <label class="field-label">4-6 Digit PIN
+              <input type="password" id="regPin" class="input mono" maxlength="6" minlength="4" placeholder="1234" inputmode="numeric" required>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full btn-lg btn-shimmer">
+            <span>Create Restaurant Workspace</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </form>
+
+        <!-- Staff PIN Pad Form -->
+        <form id="pinForm" class="auth-form hidden">
+          <label class="field-label">Workspace / Branch Code
+            <input type="text" id="loginWorkspaceCode" class="input mono" placeholder="Enter Branch Code" required>
+          </label>
+          <label class="field-label">Terminal Access PIN
+            <input type="password" id="loginPin" class="input pin-display" maxlength="6" placeholder="••••" inputmode="numeric" required>
+          </label>
+          <div class="pin-pad">
+            <button type="button" class="pin-key" data-key="1">1</button>
+            <button type="button" class="pin-key" data-key="2">2</button>
+            <button type="button" class="pin-key" data-key="3">3</button>
+            <button type="button" class="pin-key" data-key="4">4</button>
+            <button type="button" class="pin-key" data-key="5">5</button>
+            <button type="button" class="pin-key" data-key="6">6</button>
+            <button type="button" class="pin-key" data-key="7">7</button>
+            <button type="button" class="pin-key" data-key="8">8</button>
+            <button type="button" class="pin-key" data-key="9">9</button>
+            <button type="button" class="pin-key pin-clear" data-key="C">CLR</button>
+            <button type="button" class="pin-key" data-key="0">0</button>
+            <button type="submit" class="pin-key pin-go">GO</button>
+          </div>
+        </form>
+
+        <div id="authError" class="auth-error hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Authenticated Workspace -->
+  <div id="onboardingScreen" class="onboarding-screen hidden"></div>
+
+  <div id="appShell" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand-row">
+          <div class="brand-badge sm" id="brandLogoWrap">G</div>
+          <div class="brand-text">
+            <strong id="brandRestaurantName"></strong>
+            <small id="brandBranchCode"></small>
+          </div>
+          <button class="icon-btn mobile-only" id="closeSidebarBtn" aria-label="Close navigation">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav"></nav>
+
+      <div class="sidebar-footer">
+        <div class="user-pill">
+          <div class="user-avatar" id="userAvatar"></div>
+          <div class="user-meta">
+            <strong id="userName"></strong>
+            <span id="userRole" class="role-badge"></span>
+          </div>
+        </div>
+        <div class="sidebar-actions">
+          <button class="btn btn-ghost btn-xs" id="pinSwitchBtn">Switch PIN</button>
+          <button class="btn btn-ghost btn-xs" id="logoutBtn">Sign Out</button>
+        </div>
+        <div class="platform-footer-tag">
+          <span class="gres-mark">GRES</span>
+          <span>Run Your Restaurant Smarter.</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn mobile-only" id="openSidebarBtn" aria-label="Open menu">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <h2 id="pageTitle">Dashboard</h2>
+            <p id="pageSubtitle" class="topbar-sub">Real-time restaurant overview</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <span class="gres-pill" title="GRES Restaurant Management System — Run Your Restaurant Smarter.">
+            <strong>GRES</strong> <span class="muted">RMS</span>
+          </span>
+
+          <div class="ws-indicator" id="wsIndicator" title="Real-time WebSocket Sync">
+            <span class="ws-dot"></span>
+            <span id="wsText">LIVE</span>
+          </div>
+
+          <label class="branch-select-wrap" title="Active Branch">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="muted"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            <select id="branchSelect" class="select-sm"></select>
+          </label>
+        </div>
+      </header>
+
+      <main id="viewRoot" class="view-root"></main>
+    </div>
+  </div>
+
+  <!-- Reusable Modal -->
+  <div id="modalRoot" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-card" id="modalCard">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal</h3>
+        <button class="icon-btn" id="modalCloseBtn" aria-label="Close">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Stack -->
+  <div id="toastRoot" class="toast-root"></div>
+
+  <!-- Dedicated Print Area for Thermal Receipts / KOTs -->
+  <div id="printArea" class="print-area"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/thermal.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/views/pos_floor_kds.js"></script>
+  <script src="/js/views/customization.js"></script>
+  <script src="/js/views/admin_views.js"></script>
+  <script src="/js/views/onboarding.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

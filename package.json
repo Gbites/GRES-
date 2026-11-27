@@ -1,0 +1,30 @@
+{
+  "name": "gres-rms",
+  "version": "1.0.0",
+  "description": "GRES (GRES Restaurant Management System) — Run Your Restaurant Smarter.",
+  "license": "MIT",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node tests/e2e.js",
+    "test:e2e": "node tests/e2e.js"
+  },
+  "keywords": [
+    "restaurant",
+    "pos",
+    "kds",
+    "gst",
+    "invoicing",
+    "inventory",
+    "sqlite"
+  ],
+  "dependencies": {
+    "express": "^4.21.2",
+    "pdfkit": "^0.16.0",
+    "ws": "^8.18.0"
+  }
+}
